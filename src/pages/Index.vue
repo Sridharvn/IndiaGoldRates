@@ -36,41 +36,41 @@
 </template>
 
 <script>
-import { defineComponent, defineAsyncComponent } from 'vue'
+import { defineComponent, defineAsyncComponent } from "vue";
 
 const ApexBar = defineAsyncComponent(() =>
-  import('src/components/charts/ApexBar.vue')
-)
+  import("src/components/charts/ApexBar.vue")
+);
 
 const ApexColumn = defineAsyncComponent(() =>
-  import('components/charts/ApexColumn.vue')
-)
+  import("components/charts/ApexColumn.vue")
+);
 
 const ApexLine = defineAsyncComponent(() =>
-  import('components/charts/ApexLine.vue')
-)
+  import("src/components/charts/ApexLine.vue")
+);
 
 const ApexDonut = defineAsyncComponent(() =>
-  import('components/charts/ApexDonut.vue')
-)
+  import("components/charts/ApexDonut.vue")
+);
 
 const ApexCandlestick = defineAsyncComponent(() =>
-  import('components/charts/ApexCandlestick.vue')
-)
+  import("components/charts/ApexCandlestick.vue")
+);
 
 const ApexArea = defineAsyncComponent(() =>
-  import('components/charts/ApexArea.vue')
-)
+  import("components/charts/ApexArea.vue")
+);
 
 export default defineComponent({
-  name: 'PageIndex',
+  name: "PageIndex",
   components: {
     ApexBar,
     ApexLine,
     ApexColumn,
     ApexDonut,
     ApexCandlestick,
-    ApexArea
-  }
-})
+    ApexArea,
+  },
+});
 </script>
