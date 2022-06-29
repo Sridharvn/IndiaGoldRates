@@ -1,12 +1,30 @@
 <template>
   <div>
-    <gold-rates-table-vue :goldData="TableData"></gold-rates-table-vue>
-    <gold-rates-line-chart :goldData="TableData"></gold-rates-line-chart>
+    <div class="row">
+      <div class="col">
+        <h3>
+          Gold Rate in Chennai
+          <div v-if="TableData.currentPage">- {{ TableData.currentPage }}</div>
+        </h3>
+      </div>
+    </div>
+    <br />
+    <br />
+    <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5>
+    <gold-rates-table-vue
+      :goldData="TableData"
+      :key="TableData.data.length"
+    ></gold-rates-table-vue>
+    <gold-rates-line-chart
+      :goldData="TableData"
+      :key="TableData.data.length"
+    ></gold-rates-line-chart>
   </div>
 </template>
 <script>
 import { defineComponent, defineAsyncComponent } from "vue";
 import GoldRatesTableVue from "src/components/GoldRatesTable.vue";
+import axios from "axios";
 const GoldRatesLineChart = defineAsyncComponent(() =>
   import("src/components/GoldRatesAreaChart.vue")
 );
@@ -18,108 +36,42 @@ export default defineComponent({
   },
   data() {
     return {
-      TableData: {
-        data: [
-          {
-            id: 367,
-            date: "1-Jun-22",
-            price_morning_chennai: 4750,
-            price_evening_chennai: 4750,
-          },
-          {
-            id: 368,
-            date: "2-Jun-22",
-            price_morning_chennai: 4760,
-            price_evening_chennai: 4760,
-          },
-          {
-            id: 369,
-            date: "3-Jun-22",
-            price_morning_chennai: 4810,
-            price_evening_chennai: 4810,
-          },
-          {
-            id: 370,
-            date: "4-Jun-22",
-            price_morning_chennai: 4775,
-            price_evening_chennai: 4775,
-          },
-          {
-            id: 371,
-            date: "5-Jun-22",
-            price_morning_chennai: 4775,
-            price_evening_chennai: 4775,
-          },
-          {
-            id: 372,
-            date: "6-Jun-22",
-            price_morning_chennai: 4785,
-            price_evening_chennai: 4785,
-          },
-          {
-            id: 373,
-            date: "7-Jun-22",
-            price_morning_chennai: 4760,
-            price_evening_chennai: 4760,
-          },
-          {
-            id: 374,
-            date: "8-Jun-22",
-            price_morning_chennai: 4770,
-            price_evening_chennai: 4770,
-          },
-          {
-            id: 375,
-            date: "9-Jun-22",
-            price_morning_chennai: 4795,
-            price_evening_chennai: 4795,
-          },
-          {
-            id: 376,
-            date: "10-Jun-22",
-            price_morning_chennai: 4775,
-            price_evening_chennai: 4775,
-          },
-          {
-            id: 377,
-            date: "11-Jun-22",
-            price_morning_chennai: 4835,
-            price_evening_chennai: 4835,
-          },
-        ],
-        previousPage: "May-2022",
-        nextPage: null,
-        currentPage: "June-2022",
-      },
+      TableData: { data: {} },
       // Dates: [],
       // priceMorning: [],
       // priceAfternoon: [],
     };
   },
-  // methods: {
-  //   splitDataFromGoldData() {
-  //     let goldData = this.TableData;
-  //     for (let i = 0; i < goldData.data.length; i++) {
-  //       this.Dates.push(goldData.data[i].date);
-  //       this.priceMorning.push(goldData.data[i].price_morning_chennai);
-  //       this.priceAfternoon.push(goldData.data[i].price_evening_chennai);
-  //     }
-  //     console.log(
-  //       "🚀 ~ file: GoldRatesLineChart.vue ~ line 40 ~ splitDataFromGoldData ~ Dates",
-  //       this.Dates
-  //     );
-  //     console.log(
-  //       "🚀 ~ file: GoldRatesLineChart.vue ~ line 42 ~ splitDataFromGoldData ~ priceMorning",
-  //       this.priceMorning
-  //     );
-  //     console.log(
-  //       "🚀 ~ file: GoldRatesLineChart.vue ~ line 44 ~ splitDataFromGoldData ~ priceAfternoon",
-  //       this.priceAfternoon
-  //     );
-  //   },
-  // },
-  // mounted() {
-  //   this.splitDataFromGoldData();
-  // },
+  mounted() {
+    this.onLoad();
+    console.log("Mounted");
+    // this.splitDataFromGoldData();
+  },
+  methods: {
+    onLoad() {
+      axios.get("http://api.chennaigoldrates.com/").then((response) => {
+        this.TableData = response.data;
+      });
+    },
+  },
 });
 </script>
+<style scoped>
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+@media only screen and (max-width: 750) {
+  /*Tablets [601px -> 1200px]*/
+  h3 {
+    font-size: smaller;
+  }
+  h4 {
+    /* font-size: smaller; */
+    flex-shrink: inherit;
+  }
+}
+</style>

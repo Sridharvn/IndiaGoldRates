@@ -1,13 +1,35 @@
 <template>
   <div class="q-pa-md">
-    <q-table title="Treats" :rows="goldDataRows" :columns="goldDataColumns" row-key="name" />
+    <q-table
+      title="Gold Rates"
+      :loading="loading"
+      :rows="goldDataRows"
+      :columns="goldDataColumns"
+      row-key="name"
+      no-data-label="The GoldRates are being updated. Please wait or move to another page"
+      :dense="$q.screen.lt.md"
+      :pagination="pagination"
+    >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
+      <template v-slot:body-cell="props">
+        <q-td :props="props">
+          <q-badge color="" :label="props.value" />
+        </q-td>
+      </template>
+    </q-table>
   </div>
 </template>
-
 <script>
+import { ref } from "vue";
 export default {
   data() {
     return {
+      loading: true,
+      pagination: ref({
+        rowsPerPage: 31,
+      }),
       goldDataColumns: [
         {
           name: "Date",
@@ -29,10 +51,9 @@ export default {
           name: "Evening",
           label: "Evening",
           field: "Evening",
-          sortable: true
+          sortable: true,
         },
       ],
-
       goldDataRows: [],
     };
   },
@@ -54,6 +75,7 @@ export default {
         this.goldDataRows.push(goldData1);
       }
       this.key1 = this.key1 + 1;
+      this.loading = false;
     },
   },
   mounted() {

@@ -6,6 +6,10 @@
   "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  }
+    "editor.defaultFormatter": "Wscats.vue"
+  },
+  "editor.fontLigatures": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorStyle": "line",
+  "workbench.activityBar.iconClickBehavior": "toggle"
 }
