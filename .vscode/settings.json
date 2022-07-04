@@ -6,7 +6,7 @@
   "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "[vue]": {
-    "editor.defaultFormatter": "Wscats.vue"
+    "editor.defaultFormatter": "Vue.volar"
   },
   "editor.fontLigatures": true,
   "editor.cursorBlinking": "expand",

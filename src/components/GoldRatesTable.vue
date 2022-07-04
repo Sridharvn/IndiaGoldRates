@@ -1,8 +1,6 @@
 <template>
   <div class="q-pa-md">
     <q-table
-      title="Gold Rates"
-      :loading="loading"
       :rows="goldDataRows"
       :columns="goldDataColumns"
       row-key="name"
@@ -10,9 +8,6 @@
       :dense="$q.screen.lt.md"
       :pagination="pagination"
     >
-      <template v-slot:loading>
-        <q-inner-loading showing color="primary" />
-      </template>
       <template v-slot:body-cell="props">
         <q-td :props="props">
           <q-badge color="" :label="props.value" />
@@ -26,7 +21,6 @@ import { ref } from "vue";
 export default {
   data() {
     return {
-      loading: true,
       pagination: ref({
         rowsPerPage: 31,
       }),
