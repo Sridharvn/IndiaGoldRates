@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <q-table :rows="goldDataRows" :columns="goldDataColumns" row-key="name"
       no-data-label="The GoldRates are being updated. Please wait or move to another page" :dense="$q.screen.lt.md"
-      :pagination="pagination">
+      :pagination="pagination" id="goldRatesTable">
       <template v-slot:body-cell="props">
         <q-td :props="props">
           <q-badge color="secondary" :label="props.value" />
@@ -73,3 +73,13 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+#goldRatesTable {
+  // background-color: rgba(255, 255, 255, 0.685);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+</style>

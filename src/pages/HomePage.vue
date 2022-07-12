@@ -88,14 +88,14 @@ h5 {
   justify-content: center;
 }
 
-#main {
-  display: flex;
-  flex-direction: column;
-  align-items: space-around;
-  justify-content: center;
-  background-color: $info;
-  color: $dark;
-}
+// #main {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: space-around;
+//   justify-content: center;
+//   background-color: $info;
+//   color: $dark;
+// }
 
 @media only screen and (max-width: 750) {
 
