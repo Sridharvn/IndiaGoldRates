@@ -26,7 +26,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer> -->
-    <q-footer class="bg-dark text-info" style="text-align:center">Cybernet Developers</q-footer>
+    <q-footer class="bg-dark text-info" style="text-align:center" elevated bordered>Cybernet Developers</q-footer>
 
   </q-layout>
 </template>
