@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     <!-- {{ TableData }} -->
     <div class="row justify-center">
       <div class="col">
@@ -17,10 +17,10 @@
     <gold-rates-table-vue :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">
     </gold-rates-table-vue>
     <div class="fit row wrap justify-around items-center content-start">
-      <q-btn class="btn-fixed-width" color="primary" v-on:click="previousPageLoad()"
+      <q-btn class="btn-fixed-width" color="negative" v-on:click="previousPageLoad()"
         v-if="TableData.previousPage != firstDataMonth" icon="arrow_back">{{ TableData.previousPage }}</q-btn>
 
-      <q-btn class="btn-fixed-width" color="primary" v-on:click="nextPageLoad()" v-if="TableData.nextPage != null"
+      <q-btn class="btn-fixed-width" color="negative" v-on:click="nextPageLoad()" v-if="TableData.nextPage != null"
         icon-right="arrow_forward">{{
             TableData.nextPage
         }}</q-btn>
@@ -73,7 +73,7 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
+<style scoped lang="scss">
 h1,
 h2,
 h3,
@@ -86,6 +86,15 @@ h5 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+  background-color: $info;
+  color: $dark;
 }
 
 @media only screen and (max-width: 750) {

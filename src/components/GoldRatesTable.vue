@@ -1,16 +1,11 @@
 <template>
   <div class="q-pa-md">
-    <q-table
-      :rows="goldDataRows"
-      :columns="goldDataColumns"
-      row-key="name"
-      no-data-label="The GoldRates are being updated. Please wait or move to another page"
-      :dense="$q.screen.lt.md"
-      :pagination="pagination"
-    >
+    <q-table :rows="goldDataRows" :columns="goldDataColumns" row-key="name"
+      no-data-label="The GoldRates are being updated. Please wait or move to another page" :dense="$q.screen.lt.md"
+      :pagination="pagination">
       <template v-slot:body-cell="props">
         <q-td :props="props">
-          <q-badge color="" :label="props.value" />
+          <q-badge color="secondary" :label="props.value" />
         </q-td>
       </template>
     </q-table>

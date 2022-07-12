@@ -5,7 +5,7 @@
   </h5> -->
   <h5>
     Graph of Opening Prices of 1 Gram, 22 Carat Gold (916 Gold) in Chennai, Tamil Nadu ({{
-      goldData.currentPage
+        goldData.currentPage
     }})
   </h5>
   <apexchart height="300" type="area" :options="options" :series="series" :key="key1" />
@@ -56,7 +56,7 @@ export default defineComponent({
           height: 300,
           type: "area",
         },
-        colors: [getCssVar("primary"), getCssVar("secondary"), getCssVar("negative")],
+        colors: [getCssVar("accent"), getCssVar("secondary"), getCssVar("negative")],
         markers: {
           size: 5,
           hover: {
