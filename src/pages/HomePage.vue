@@ -14,8 +14,9 @@
     <br />
     <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5>
     <loading-animation id="loading-animation" v-if="isLoading"></loading-animation>
-    <gold-rates-table-vue :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">
-    </gold-rates-table-vue>
+    <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading"></gold-rates-line-chart>
+
+
     <div class="fit row wrap justify-around items-center content-start">
       <q-btn class="btn-fixed-width" color="negative" v-on:click="previousPageLoad()"
         v-if="TableData.previousPage != firstDataMonth" icon="arrow_back">{{ TableData.previousPage }}</q-btn>
@@ -24,8 +25,10 @@
         icon-right="arrow_forward">{{
             TableData.nextPage
         }}</q-btn>
+
     </div>
-    <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading"></gold-rates-line-chart>
+    <gold-rates-table-vue :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">
+    </gold-rates-table-vue>
   </div>
 </template>
 <script>
