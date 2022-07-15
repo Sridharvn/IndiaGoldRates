@@ -11,5 +11,6 @@
   "editor.fontLigatures": true,
   "editor.cursorBlinking": "expand",
   "editor.cursorStyle": "line",
-  "workbench.activityBar.iconClickBehavior": "toggle"
+  "workbench.activityBar.iconClickBehavior": "toggle",
+  "cSpell.words": ["axios"]
 }
