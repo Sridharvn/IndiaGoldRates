@@ -9,12 +9,23 @@
           </span>
         </h4>
       </div>
+      <div class="q-pa-md">
+        <div class="q-gutter-y-md column" style="max-width: 300px">
+          <q-select clearable filled color="primary" v-model="selectedmonth" :options="months" label="Month" />
+        </div>
+      </div>
+      <div class="q-pa-md">
+        <div class="q-gutter-y-md column" style="max-width: 300px">
+          <q-select clearable filled color="secondary" v-model="selectedyear" :options="years" label="Year" />
+        </div>
+      </div>
     </div>
     <br />
     <br />
     <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5>
     <loading-animation id="loading-animation" v-if="isLoading"></loading-animation>
-    <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading"></gold-rates-line-chart>
+    <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">
+    </gold-rates-line-chart>
 
 
     <div class="fit row wrap justify-around items-center content-start">
@@ -32,6 +43,7 @@
   </div>
 </template>
 <script>
+import { ref } from 'vue'
 import { defineComponent, defineAsyncComponent } from "vue";
 import GoldRatesTableVue from "src/components/GoldRatesTable.vue";
 import axios from "axios";
@@ -51,28 +63,83 @@ export default defineComponent({
       TableData: { data: {} },
       url: "http://api.chennaigoldrates.com/",
       firstDataMonth: "June-2021",
-      isLoading: true
+      isLoading: true,
+      months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      selectedmonth: "",
+      selectedyear: "",
+      days: "",
+      thisyear: "",
+      years: [],
+      minyear: "2021",
+      minmonth: "June",
+      model: ref(this.selectedmonth),
     };
   },
   mounted() {
     this.onLoad(this.url);
+    this.findCurrentYear();
   },
   methods: {
     onLoad(url) {
       axios.get(url).then((response) => {
         this.TableData = response.data;
         this.isLoading = false;
+        this.selectedmonth = this.TableData.currentPage.split("-")[0];
+        this.selectedyear = this.TableData.currentPage.split("-")[1];
+        this.checkIf2021();
       });
     },
     previousPageLoad() {
       this.isLoading = true;
       this.onLoad(this.url + this.TableData.previousPage);
-
+      this.selectedmonth = this.TableData.currentPage.split("-")[0];
+      this.selectedyear = this.TableData.currentPage.split("-")[1];
+      this.checkIf2021();
     },
     nextPageLoad() {
       this.isLoading = true;
       this.onLoad(this.url + this.TableData.nextPage);
+      this.selectedmonth = this.TableData.currentPage.split("-")[0];
+      this.selectedyear = this.TableData.currentPage.split("-")[1];
+      this.checkIf2021();
     },
+    checkMonthDays() {
+      if (this.selectedmonth == "January" || this.selectedmonth == "March" || this.selectedmonth == "May" || this.selectedmonth == "July" || this.selectedmonth == "August" || this.selectedmonth == "October" || this.selectedmonth == "December") {
+        this.days = 31;
+      }
+      else if (this.selectedmonth == "February") {
+        this.days = 28;
+      }
+      else {
+        this.days = 30;
+      }
+    },
+    findCurrentYear() {
+      var today = new Date();
+      this.thisyear = today.getFullYear();
+      for (var i = this.minyear; i <= this.thisyear; i++) {
+        this.years.push(i);
+      }
+    },
+    // Add a function that checks if the year is 2021 and sets the months to start from June
+    checkIf2021() {
+      if (this.selectedyear == "2021") {
+        this.months = ["June", "July", "August", "September", "October", "November", "December"];
+      }
+    }
   },
 });
 </script>
