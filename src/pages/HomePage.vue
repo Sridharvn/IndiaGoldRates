@@ -11,13 +11,16 @@
       </div>
       <div class="q-pa-md">
         <div class="q-gutter-y-md column" style="max-width: 300px">
-          <q-select clearable filled color="primary" v-model="selectedmonth" :options="months" label="Month" />
+          <q-select clearable filled color="primary" v-model="selectedmonth" :options="months" label="Month"
+            behavior="menu" />
         </div>
       </div>
       <div class="q-pa-md">
         <div class="q-gutter-y-md column" style="max-width: 300px">
-          <q-select clearable filled color="secondary" v-model="selectedyear" :options="years" label="Year" />
+          <q-select clearable filled color="secondary" v-model="selectedyear" :options="years" label="Year"
+            behavior="menu" />
         </div>
+        <q-btn color="primary" label="Go to selected month" v-on:click="goToSelected()" />
       </div>
     </div>
     <br />
@@ -99,7 +102,6 @@ export default defineComponent({
         this.isLoading = false;
         this.selectedmonth = this.TableData.currentPage.split("-")[0];
         this.selectedyear = this.TableData.currentPage.split("-")[1];
-        this.checkIf2021();
       });
     },
     previousPageLoad() {
@@ -107,14 +109,12 @@ export default defineComponent({
       this.onLoad(this.url + this.TableData.previousPage);
       this.selectedmonth = this.TableData.currentPage.split("-")[0];
       this.selectedyear = this.TableData.currentPage.split("-")[1];
-      this.checkIf2021();
     },
     nextPageLoad() {
       this.isLoading = true;
       this.onLoad(this.url + this.TableData.nextPage);
       this.selectedmonth = this.TableData.currentPage.split("-")[0];
       this.selectedyear = this.TableData.currentPage.split("-")[1];
-      this.checkIf2021();
     },
     checkMonthDays() {
       if (this.selectedmonth == "January" || this.selectedmonth == "March" || this.selectedmonth == "May" || this.selectedmonth == "July" || this.selectedmonth == "August" || this.selectedmonth == "October" || this.selectedmonth == "December") {
@@ -134,13 +134,21 @@ export default defineComponent({
         this.years.push(i);
       }
     },
-    // Add a function that checks if the year is 2021 and sets the months to start from June
-    checkIf2021() {
-      if (this.selectedyear == "2021") {
-        this.months = ["June", "July", "August", "September", "October", "November", "December"];
-      }
+    goToSelected() {
+      this.isLoading = true;
+      this.onLoad(this.url + this.selectedmonth + "-" + this.selectedyear);
     }
   },
+  watch: {
+    selectedyear(newVal, oldVal) {
+      if (this.selectedyear == "2021") {
+        this.months = ["July", "August", "September", "October", "November", "December"];
+        console.log(this.months);
+      } else
+        this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    }
+  }
 });
 </script>
 <style scoped lang="scss">
