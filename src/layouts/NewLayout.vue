@@ -13,7 +13,7 @@
     </q-header>
 
     <q-page-container>
-      <router-view />
+      <router-view></router-view>
     </q-page-container>
 
     <!-- <q-footer class="bg-dark text-white">

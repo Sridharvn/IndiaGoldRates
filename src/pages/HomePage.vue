@@ -9,19 +9,27 @@
           </span>
         </h4>
       </div>
-      <div class="q-pa-md">
-        <div class="q-gutter-y-md column" style="max-width: 300px">
-          <q-select clearable filled color="primary" v-model="selectedmonth" :options="months" label="Month"
-            behavior="menu" />
-        </div>
+    </div>
+    <h6 class="row justify-center" style="padding:0;margin:0">
+      Select any month from the list to see the gold rate for that month</h6>
+    <div class="row justify-center">
+
+      <!-- <div class="q-pa-md" style="background-color:red"> -->
+      <div class="q-gutter-y-md column" style="max-width: 300px; padding:10px;">
+        <q-select clearable filled color="primary" v-model="selectedmonth" :options="months" label="Month"
+          behavior="menu" />
       </div>
-      <div class="q-pa-md">
-        <div class="q-gutter-y-md column" style="max-width: 300px">
-          <q-select clearable filled color="secondary" v-model="selectedyear" :options="years" label="Year"
-            behavior="menu" />
-        </div>
-        <q-btn color="primary" label="Go to selected month" v-on:click="goToSelected()" />
+      <!-- <div class="q-pa-md"> -->
+      <div class="q-gutter-y-md column" style="max-width: 300px;padding:10px">
+        <q-select clearable filled color="secondary" v-model="selectedyear" :options="years" label="Year"
+          behavior="menu" />
       </div>
+
+      <!-- </div> -->
+    </div>
+    <!-- </div> -->
+    <div class="row justify-center">
+      <q-btn color="primary" label="Go to selected month" v-on:click="goToSelected()" />
     </div>
     <br />
     <br />
@@ -159,6 +167,11 @@ h4,
 h5 {
   text-align: center;
 }
+
+// * {
+//   // add border
+//   border: 1px solid #000;
+// }
 
 #loading-animation {
   display: flex;
