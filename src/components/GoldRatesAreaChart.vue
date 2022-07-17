@@ -4,7 +4,7 @@
     Tamil Nadu ({{ goldData.currentPage }})
   </h5> -->
   <h5>
-    Graph of Opening Prices of 1 Gram, 22 Carat Gold (916 Gold) in Chennai, Tamil Nadu ({{
+    Graph of Opening and Closing Prices of 1 Gram, 22 Carat Gold (916 Gold) in Chennai, Tamil Nadu ({{
         goldData.currentPage
     }})
   </h5>

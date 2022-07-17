@@ -11,7 +11,7 @@
       </div>
     </div>
     <h6 class="row justify-center" style="padding:0;margin:0;text-align:center">
-      Select any month from the list to see the gold rate for that month</h6>
+      View the gold rate for any month by choosing it from the list</h6>
     <div class="row justify-center">
 
       <!-- <div class="q-pa-md" style="background-color:red"> -->
@@ -29,11 +29,11 @@
     </div>
     <!-- </div> -->
     <div class="row justify-center">
-      <q-btn color="primary" label="Go to selected month" v-on:click="goToSelected()" />
+      <q-btn color="primary" label="Go to chosen month" v-on:click="goToSelected()" />
     </div>
     <!-- <br />
     <br /> -->
-    <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5>
+    <!-- <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5> -->
     <loading-animation id="loading-animation" v-if="isLoading"></loading-animation>
     <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">
     </gold-rates-line-chart>
