@@ -150,6 +150,7 @@ export default defineComponent({
   watch: {
     selectedyear(newVal, oldVal) {
       if (this.selectedyear == "2021") {
+        this.selectedmonth = "";
         this.months = ["July", "August", "September", "October", "November", "December"];
         console.log(this.months);
       } else
