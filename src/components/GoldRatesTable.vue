@@ -5,7 +5,7 @@
       :pagination="pagination" id="goldRatesTable">
       <template v-slot:body-cell="props">
         <q-td :props="props">
-          <q-badge color="secondary" :label="props.value" />
+          <q-badge color="dark" :label="props.value" />
         </q-td>
       </template>
     </q-table>

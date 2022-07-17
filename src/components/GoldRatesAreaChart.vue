@@ -56,7 +56,7 @@ export default defineComponent({
           height: 300,
           type: "area",
         },
-        colors: [getCssVar("accent"), getCssVar("secondary"), getCssVar("negative")],
+        colors: [getCssVar("secondary"), getCssVar("accent"), getCssVar("negative")],
         markers: {
           size: 5,
           hover: {

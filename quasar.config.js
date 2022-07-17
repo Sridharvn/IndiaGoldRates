@@ -144,9 +144,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `India Gold Rates`,
-        short_name: `India Gold Rates`,
-        description: `Indian Gold Rates app`,
+        name: `Chennai Gold Rates`,
+        short_name: `Chennai Gold Rates`,
+        description: `Chennai Gold Rates app`,
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",

@@ -3,14 +3,14 @@
     <!-- {{ TableData }} -->
     <div class="row justify-center">
       <div class="col">
-        <h4>
+        <h4 style="font-weight:900">
           Gold Rate in Chennai
           <span v-if="TableData.currentPage">- {{ TableData.currentPage }}
           </span>
         </h4>
       </div>
     </div>
-    <h6 class="row justify-center" style="padding:0;margin:0">
+    <h6 class="row justify-center" style="padding:0;margin:0;text-align:center">
       Select any month from the list to see the gold rate for that month</h6>
     <div class="row justify-center">
 
@@ -40,10 +40,10 @@
 
 
     <div class="fit row wrap justify-around items-center content-start">
-      <q-btn class="btn-fixed-width" color="negative" v-on:click="previousPageLoad()"
+      <q-btn class="btn-fixed-width" color="primary" v-on:click="previousPageLoad()"
         v-if="TableData.previousPage != firstDataMonth" icon="arrow_back">{{ TableData.previousPage }}</q-btn>
 
-      <q-btn class="btn-fixed-width" color="negative" v-on:click="nextPageLoad()" v-if="TableData.nextPage != null"
+      <q-btn class="btn-fixed-width" color="primary" v-on:click="nextPageLoad()" v-if="TableData.nextPage != null"
         icon-right="arrow_forward">{{
             TableData.nextPage
         }}</q-btn>
@@ -93,6 +93,7 @@ export default defineComponent({
       selectedyear: "",
       days: "",
       thisyear: "",
+      thismonth: "",
       years: [],
       minyear: "2021",
       minmonth: "June",
@@ -155,7 +156,10 @@ export default defineComponent({
         console.log(this.months);
       } else
         this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
+      // find current year and month
+      var today = new Date();
+      this.thismonth = today.getMonth();
+      this.months.splice(this.thismonth + 1, this.months.length - this.thismonth - 1);
     }
   }
 });
@@ -179,6 +183,8 @@ h5 {
   align-items: center;
   justify-content: center;
 }
+
+
 
 // #main {
 //   display: flex;
