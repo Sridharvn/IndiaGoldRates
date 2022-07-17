@@ -31,8 +31,8 @@
     <div class="row justify-center">
       <q-btn color="primary" label="Go to selected month" v-on:click="goToSelected()" />
     </div>
-    <br />
-    <br />
+    <!-- <br />
+    <br /> -->
     <h5>(22 Carat / 1 Gram Gold Price in Rupees)</h5>
     <loading-animation id="loading-animation" v-if="isLoading"></loading-animation>
     <gold-rates-line-chart :goldData="TableData" :key="TableData.data.length" v-if="!isLoading">

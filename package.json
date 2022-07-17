@@ -1,8 +1,8 @@
 {
   "name": "indiagoldrates",
   "version": "0.0.1",
-  "description": "Indian Gold Rates app",
-  "productName": "India Gold Rates",
+  "description": "Chennai Gold Rates app",
+  "productName": "Chennai Gold Rates",
   "author": "Sridharvn <sridharvnampoothiripad@gmail.com>",
   "private": true,
   "scripts": {
