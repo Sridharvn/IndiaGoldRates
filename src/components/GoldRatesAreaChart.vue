@@ -30,8 +30,10 @@
   /> -->
 </template>
 <script>
+
 import { defineComponent } from "vue";
 import { getCssVar } from "quasar";
+
 export default defineComponent({
   name: "Apex-area",
   props: {
