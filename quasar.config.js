@@ -185,12 +185,14 @@ module.exports = configure(function (ctx) {
     cordova: {
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
     },
-
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-capacitor-apps/configuring-capacitor
     capacitor: {
-      hideSplashscreen: true,
+      hideSplashscreen: false,
     },
-
+    bin: {
+      windowsAndroidStudio:
+        "D:\\Android_Studio\\AndroidStudioSW\\bin\\studio64.exe",
+    },
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/developing-electron-apps/configuring-electron
     electron: {
       bundler: "packager", // 'packager' or 'builder'
