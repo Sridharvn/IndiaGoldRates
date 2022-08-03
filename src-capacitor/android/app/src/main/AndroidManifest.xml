@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.cybernetdevelopers.chennaigoldrates">
+    package="com.cybernetdevelopers.chennaigoldrates">
 
     <application
         android:usesCleartextTraffic="true"
@@ -13,7 +13,7 @@
 
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
-            android:name="org.cybernetdevelopers.chennaigoldrates.MainActivity"
+            android:name="com.cybernetdevelopers.chennaigoldrates.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask">

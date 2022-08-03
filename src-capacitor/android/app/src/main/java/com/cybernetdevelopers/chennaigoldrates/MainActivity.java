@@ -1,4 +1,4 @@
-package org.cybernetdevelopers.chennaigoldrates;
+package com.cybernetdevelopers.chennaigoldrates;
 
 import android.os.Bundle;
 
