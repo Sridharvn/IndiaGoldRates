@@ -174,10 +174,10 @@ h5 {
   text-align: center;
 }
 
-// * {
-//   // add border
-//   border: 1px solid #000;
-// }
+* {
+  // add border
+  border: 1px solid $info;
+}
 
 #loading-animation {
   display: flex;
