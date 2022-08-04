@@ -29,7 +29,7 @@
     </div>
     <!-- </div> -->
     <div class="row justify-center">
-      <q-btn color="primary" label="Go to chosen month" v-on:click="goToSelected()" />
+      <q-btn color="primary" label="Go" v-on:click="goToSelected()" />
     </div>
     <!-- <br />
     <br /> -->
@@ -176,7 +176,7 @@ h5 {
 
 * {
   // add border
-  border: 1px solid $info;
+  border: 0.0px solid $info;
 }
 
 #loading-animation {
