@@ -1,5 +1,5 @@
 {
-  "appId": "com.cybernetdevelopers.chennaigoldrates",
+  "appId": "com.cybernetdevelopers.chennaigoldrates.app",
   "appName": "Chennai Gold Rates",
   "bundledWebRuntime": false,
   "npmClient": "npm",
