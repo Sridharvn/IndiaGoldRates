@@ -9,7 +9,10 @@
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "icons": "icongenie generate -i Appicon.png --skip-trim --theme-color dfecf0 --padding 15,15"
+    "icons": "icongenie generate -i Appicon.png --skip-trim --theme-color dfecf0 --padding 15,15",
+    "build:ssg": "quasar ssg generate",
+    "dev:ssg": "quasar ssg dev",
+    "serve:ssg": "quasar ssg serve dist/ssg"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -29,7 +32,8 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-webpack-plugin": "^3.1.1",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "quasar-app-extension-ssg": "^4.5.7"
   },
   "browserslist": [
     "last 10 Chrome versions",
